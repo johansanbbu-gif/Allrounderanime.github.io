@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Rounder Anime</title>
+    <style>
+        /* Iframe ko full screen karne ka design */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <iframe src="https://piratexplay.cc/home"></iframe>
+
+    <script>
+        // SECURITY CHECK aur 24-Ghante ka Time Set karna
+        let lastUnlocked = localStorage.getItem('animeUnlockedTime');
+        let now = new Date().getTime();
+
+        // Jaise hi user is page par pahunchega, aaj ka time save ho jayega
+        // Taaki agle 24 ghante tak usko Page 1 se direct yahan bhej diya jaye
+        if (!lastUnlocked || (now - lastUnlocked >= 24 * 60 * 60 * 1000)) {
+            localStorage.setItem('animeUnlockedTime', now);
+        }
+    </script>
+</body>
+</html>

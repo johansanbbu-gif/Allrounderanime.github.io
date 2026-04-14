@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Anime Content - Final Step</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+        body { 
+            margin: 0; padding: 0; background-color: #0f0f1b; color: #fff; 
+            font-family: 'Poppins', sans-serif; text-align: center;
+            background-image: radial-gradient(circle at top, #1c2b39, #0f0f1b);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 20px;
+            box-shadow: 0 0 20px rgba(46, 213, 115, 0.2); border: 1px solid rgba(46, 213, 115, 0.1);
+            backdrop-filter: blur(10px); width: 90%; max-width: 400px;
+        }
+        h2 { color: #2ed573; text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
+        .ad-box { 
+            width: 100%; height: 250px; background: #000; border: 2px dashed #2ed573; 
+            margin: 20px 0; display: flex; align-items: center; justify-content: center;
+            color: #888; border-radius: 10px;
+        }
+        #countdown { font-size: 50px; font-weight: 900; color: #ff4757; text-shadow: 0 0 10px rgba(255, 71, 87, 0.5); }
+        .warning { color: #ffa502; font-size: 14px; margin-top: 10px; }
+        #continueBtn { 
+            display: none; padding: 15px 40px; font-size: 20px; background: #2ed573; 
+            color: #000; text-decoration: none; border-radius: 30px; font-weight: bold;
+            box-shadow: 0 0 15px #2ed573; transition: 0.3s; margin-top: 20px;
+        }
+        #continueBtn:hover { transform: scale(1.05); box-shadow: 0 0 25px #2ed573; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hero Protocol Active</h2>
+        <p>Aakhiri ad dekhein (Step 4/4)</p>
+        
+        <div class="ad-box">
+            [AD AREA]
+        </div>
+
+        <div id="timerText">
+            <div id="countdown">30</div>
+            <p class="warning">⚠️ Ad skip kiya ya tab change kiya toh timer ruk jayega!</p>
+        </div>
+
+        <a href="all-rounder-anime.html" id="continueBtn">UNLOCK ANIME NOW 🔓</a>
+    </div>
+
+    <script type='text/javascript' src='//your-adsterra-script-link.js'></script>
+
+    <script>
+        let timeLeft = 30;
+        let timerElement = document.getElementById("countdown");
+        let btnElement = document.getElementById("continueBtn");
+        let textElement = document.getElementById("timerText");
+        let isPaused = false;
+
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                isPaused = true;
+                document.title = "⚠️ Timer Paused!";
+            } else {
+                isPaused = false;
+                document.title = "Final Step";
+            }
+        });
+
+        let timer = setInterval(function() {
+            if (!isPaused) {
+                timeLeft--;
+                timerElement.innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    textElement.style.display = "none";
+                    btnElement.style.display = "inline-block";
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
